@@ -6,11 +6,11 @@ This task is a basic awareness webpage for InAmigos Foundation. It introduces th
 
 ### Desktop View
 
-<img src="./desktop-ss.png" alt="Desktop screenshot of Task 1 webpage" width="900" />
+<img src="./assets/desktop-ss.png" alt="Desktop screenshot of Task 1 webpage" width="900" />
 
 ### Mobile View
 
-<img src="./mobile-ss.png" alt="Mobile screenshot of Task 1 webpage" width="320" />
+<img src="./assets/mobile-ss.png" alt="Mobile screenshot of Task 1 webpage" width="320" />
 
 ## What It Includes
 
