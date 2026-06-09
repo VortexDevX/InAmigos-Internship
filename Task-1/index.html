@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-IN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- Simple static page made for the NGO awareness internship task. -->
     <header class="site-header">
       <nav class="nav">
         <a class="brand" href="#home" aria-label="InAmigos Foundation home">
@@ -24,13 +23,17 @@
           id="nav-check"
           aria-hidden="true"
         />
-        <label class="nav-toggle" for="nav-check">
+        <label
+          class="nav-toggle"
+          for="nav-check"
+          role="button"
+          aria-controls="nav-links-menu"
+        >
           <span></span>
           Menu
         </label>
 
-        <!-- Impact compass nav: compact on mobile, expanded on desktop. -->
-        <div class="nav-links" aria-label="Page sections">
+        <div class="nav-links" id="nav-links-menu" aria-label="Page sections">
           <a class="trail-about" href="#about">
             <span></span>
             About
@@ -52,7 +55,7 @@
     </header>
 
     <main id="home">
-      <!-- Main message + first call to action. -->
+      <!-- Main message + first CTA -->
       <section class="hero">
         <div class="hero-content">
           <p class="eyebrow">Uniting minds for change</p>
@@ -112,15 +115,17 @@
             conservation, and skill development.
           </p>
           <p>
-            The foundation is registered under Section 8, licensed by the
-            Central Government, and is listed as 80G and 12A certified, CSR-1
-            registered, NITI Aayog registered, and ISO 9001:2015 certified on
-            its official website.
+            The foundation is a Section 8 registered non-profit, licensed by the
+            Central Government. It holds 80G &amp; 12A certifications for donor
+            tax-exempt benefits, is CSR-1 registered for corporate partnership
+            initiatives, NITI Aayog registered to align with national
+            development goals, and holds the IAF ISO 9001:2015 certification for
+            quality standards in operations.
           </p>
         </div>
       </section>
 
-      <!-- Impact numbers are based on official InAmigos information. -->
+      <!-- Impact -->
       <section id="impact" class="section impact-section">
         <div class="section-heading">
           <p class="section-label">Impact at a glance</p>
@@ -303,7 +308,7 @@
                 d="m4.4 4.5 6.1 8.2-6.5 6.8h2.1l5.3-5.5 4.1 5.5H20l-6.5-8.8 6.1-6.2h-2.1l-4.9 5-3.7-5H4.4Zm3.1 1.55h1.2l8.2 11.9h-1.2L7.5 6.05Z"
               />
             </svg>
-            Twitter</a
+            X (Twitter)</a
           >
           <a
             href="https://youtube.com/@inamigosfoundation"
@@ -320,7 +325,7 @@
         </div>
       </section>
 
-      <!-- Final CTA keeps the visitor focused on the next step. -->
+      <!-- Final CTA -->
       <section id="join" class="cta">
         <div>
           <p class="section-label">Call to action</p>
@@ -351,7 +356,7 @@
 
     <footer class="footer">
       <div>
-        <strong>Sources used</strong>
+        <h2>Sources used</h2>
         <p>
           Official website, official LinkedIn page, and official social links
           shared for this internship task.
@@ -405,8 +410,19 @@
         });
       });
 
+      // Update aria-expanded on nav toggle for screen readers
+      const navToggleLabel = document.querySelector(".nav-toggle");
+      menuCheck.addEventListener("change", () => {
+        navToggleLabel.setAttribute(
+          "aria-expanded",
+          menuCheck.checked ? "true" : "false",
+        );
+      });
+      navToggleLabel.setAttribute("aria-expanded", "false");
+
       window.addEventListener("load", () => {
-        if (location.hash) setTimeout(() => scrollWithNavSpace(location.hash), 80);
+        if (location.hash)
+          setTimeout(() => scrollWithNavSpace(location.hash), 80);
       });
     </script>
   </body>

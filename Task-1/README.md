@@ -27,13 +27,13 @@ This task is a basic awareness webpage for InAmigos Foundation. It introduces th
 ```txt
 Task-1/
 ├── assets/
+│   ├── desktop-ss.png
 │   ├── logo.jpg
+│   ├── mobile-ss.png
 │   ├── project-jeev.jpg
 │   ├── project-seva.jpg
 │   └── water-day.jpg
-├── desktop-ss.png
 ├── index.html
-├── mobile-ss.png
 ├── README.md
 └── style.css
 ```

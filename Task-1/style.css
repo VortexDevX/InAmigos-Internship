@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,700;9..144,800&display=swap");
 
 :root {
-  /* Brand colors inspired by the InAmigos logo. */
+  /* Brand colors */
   --ink: #171717;
   --muted: #646464;
   --paper: #fffaf1;
@@ -85,7 +85,6 @@ img {
   max-width: 100%;
 }
 
-/* Sticky nav helps the one-page layout feel easy to browse. */
 .site-header {
   position: sticky;
   top: 0;
@@ -162,7 +161,7 @@ img {
   border-radius: 999px;
   background: #fff;
   font-size: 0.9rem;
-  font-weight: 650;
+  font-weight: 600;
   box-shadow: inset 0 0 0 1px var(--line);
 }
 
@@ -339,7 +338,14 @@ img {
   border-radius: 26px;
   background:
     linear-gradient(#fffaf1, #fffaf1) padding-box,
-    linear-gradient(135deg, var(--orange), var(--green), var(--blue), var(--purple)) border-box;
+    linear-gradient(
+        135deg,
+        var(--orange),
+        var(--green),
+        var(--blue),
+        var(--purple)
+      )
+      border-box;
   box-shadow: 0 28px 70px rgba(40, 33, 20, 0.16);
   animation: soft-glow 4s ease-in-out infinite;
 }
@@ -479,7 +485,7 @@ img {
 
 .stats span {
   color: var(--muted);
-  font-weight: 650;
+  font-weight: 600;
 }
 
 .section-heading {
@@ -665,6 +671,10 @@ img {
 .cta .btn.secondary.light {
   background: transparent;
   color: #fff;
+}
+
+.cta .btn.secondary.light:hover {
+  box-shadow: 2px 2px 0 rgba(255, 255, 255, 0.5);
 }
 
 .footer {
