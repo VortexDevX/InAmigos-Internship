@@ -1,84 +1,484 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>InAmigos Internship Tasks</title>
-    <style>
-      body {
-        margin: 0;
-        min-height: 100vh;
-        display: grid;
-        place-items: center;
-        background: #fffaf1;
-        color: #171717;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      }
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InAmigos Internship Tasks | Vaibhav Patel</title>
+
+  <!-- Modern Neo-Brutalist Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #FFFBF4;
+      --card-bg: #FFFFFF;
+      --dark: #1A1A1A;
+      --primary: #F26A36;
+      --primary-accent: #FFB703;
+      --pastel-green: #D8F3DC;
+      --pastel-blue: #D0EBFF;
+      --pastel-orange: #FFE3D8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--dark);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    main {
+      width: min(760px, 100%);
+      background-color: var(--card-bg);
+      border: 3px solid var(--dark);
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 10px 10px 0 var(--dark);
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 480px) {
       main {
-        width: min(720px, calc(100% - 40px));
-        padding: 36px;
-        border: 2px solid #171717;
-        border-radius: 12px;
-        background: #fff;
-        box-shadow: 8px 8px 0 #171717;
+        padding: 24px 16px;
+      }
+    }
+
+    /* Header Styling */
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+      border-bottom: 3px dashed var(--dark);
+      padding-bottom: 32px;
+    }
+
+    .logo-container {
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+
+    .brand-logo {
+      width: 84px;
+      height: 84px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--dark);
+      box-shadow: 4px 4px 0 var(--dark);
+      background-color: #FFF;
+    }
+
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    h1 span {
+      background-color: var(--primary-accent);
+      padding: 0 8px;
+      border: 2px solid var(--dark);
+      display: inline-block;
+      transform: rotate(-1deg);
+      box-shadow: 3px 3px 0 var(--dark);
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: #555;
+      font-weight: 500;
+      max-width: 540px;
+      margin: 12px auto 0;
+    }
+
+    /* Badges */
+    .meta-tags {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .badge {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border: 2px solid var(--dark);
+      border-radius: 8px;
+      box-shadow: 3px 3px 0 var(--dark);
+    }
+
+    .badge-name {
+      background-color: var(--pastel-blue);
+    }
+
+    .badge-role {
+      background-color: #FFF;
+    }
+
+    .badge-status {
+      background-color: var(--pastel-green);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #2D6A4F;
+      display: inline-block;
+      animation: pulse 1.8s infinite;
+      border: 1px solid var(--dark);
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(0.95);
+        opacity: 1;
       }
 
-      img {
-        width: 72px;
-        height: 72px;
-        object-fit: contain;
-        border-radius: 50%;
+      50% {
+        transform: scale(1.15);
+        opacity: 0.5;
       }
 
-      h1 {
-        margin: 18px 0 10px;
-        font-size: clamp(2rem, 5vw, 3.5rem);
-        line-height: 1.05;
+      100% {
+        transform: scale(0.95);
+        opacity: 1;
       }
+    }
 
-      p {
-        margin: 0 0 24px;
-        color: #646464;
-        font-size: 1.05rem;
-      }
+    /* Task Container */
+    .task-list {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
 
-      .task-links {
-        display: flex;
+    .task-card {
+      border: 2.5px solid var(--dark);
+      border-radius: 12px;
+      padding: 24px;
+      background-color: var(--card-bg);
+      box-shadow: 6px 6px 0 var(--dark);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .task-card:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 8px 8px 0 var(--dark);
+    }
+
+    .task-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .task-tag {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border: 2px solid var(--dark);
+      border-radius: 6px;
+      text-transform: uppercase;
+      box-shadow: 2px 2px 0 var(--dark);
+    }
+
+    .tag-t1 {
+      background-color: var(--pastel-orange);
+    }
+
+    .tag-t2 {
+      background-color: var(--pastel-blue);
+    }
+
+    .tag-t3 {
+      background-color: var(--pastel-green);
+    }
+
+    .task-card h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .task-card p {
+      font-size: 0.92rem;
+      color: #444;
+      line-height: 1.55;
+      margin: 10px 0 16px;
+    }
+
+    /* Tech Stack Tags */
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+      border-top: 2px dashed #E5E5E5;
+      padding-top: 14px;
+    }
+
+    .tech-pill {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--dark);
+      background-color: #FAF8F5;
+    }
+
+    /* Buttons */
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 20px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      border: 2.5px solid var(--dark);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.1s, box-shadow 0.1s;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: #FFF;
+      box-shadow: 4px 4px 0 var(--dark);
+    }
+
+    .btn-primary:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 var(--dark);
+    }
+
+    .btn-primary:active {
+      transform: translate(4px, 4px);
+      box-shadow: 0px 0px 0 var(--dark);
+    }
+
+    .btn-secondary {
+      background-color: #FFF;
+      color: var(--dark);
+      box-shadow: 4px 4px 0 var(--dark);
+    }
+
+    .btn-secondary:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 var(--dark);
+    }
+
+    .btn-secondary:active {
+      transform: translate(4px, 4px);
+      box-shadow: 0px 0px 0 var(--dark);
+    }
+
+    /* Footer styling */
+    footer {
+      width: min(760px, 100%);
+      border: 3px solid var(--dark);
+      border-radius: 12px;
+      background-color: #FFF;
+      padding: 20px;
+      box-shadow: 6px 6px 0 var(--dark);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-text {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #555;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .footer-links a {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 0.82rem;
+      color: var(--dark);
+      text-decoration: none;
+      border-bottom: 2px solid var(--dark);
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    @media (max-width: 600px) {
+      footer {
         flex-direction: column;
-        gap: 12px;
+        text-align: center;
       }
+    }
+  </style>
+</head>
 
-      a {
-        display: inline-flex;
-        min-height: 48px;
-        align-items: center;
-        justify-content: center;
-        padding: 12px 20px;
-        border: 2px solid #171717;
-        border-radius: 999px;
-        background: #171717;
-        color: #fff;
-        font-weight: 800;
-        text-decoration: none;
-        box-shadow: 5px 5px 0 rgba(23, 23, 23, 0.22);
-      }
-    </style>
-  </head>
-  <body>
-    <main>
-      <img src="./Task-1/assets/logo.jpg" alt="InAmigos Foundation logo" />
-      <h1>InAmigos Internship Tasks</h1>
-      <p>
-        A collection of internship task submissions. More task folders can be
-        added here later without changing existing task paths.
-      </p>
-      <div class="task-links">
-        <a href="./Task-1/">Open Task 1</a>
-        <a href="./Task-2/Vaibhav_Patel_Task_2_Website_Audit.pdf"
-          >Open Task 2 (PDF)</a
-        >
+<body>
+
+  <main>
+    <div class="header">
+      <div class="logo-container">
+        <img class="brand-logo" src="./Task-1/assets/logo.jpg" alt="InAmigos Foundation Logo" />
       </div>
-    </main>
-  </body>
+      <h1>InAmigos <span>Internship Tasks</span></h1>
+      <p class="subtitle">An interactive submission board featuring all tasks completed during the Web Development
+        Internship.</p>
+
+      <div class="meta-tags">
+        <span class="badge badge-name">Vaibhav Patel</span>
+        <span class="badge badge-role">Web Development Intern</span>
+        <span class="badge badge-status">
+          <span class="pulse-dot"></span>
+          Tasks Completed
+        </span>
+      </div>
+    </div>
+
+    <div class="task-list">
+      <!-- TASK 1 -->
+      <section class="task-card">
+        <div class="task-card-header">
+          <h2>NGO Awareness Portal</h2>
+          <span class="task-tag tag-t1">Task 01</span>
+        </div>
+        <p>A structured recreation of the official InAmigos Foundation landing page. Rebuilt from scratch focusing on
+          clean typography, responsive grids, and standard HTML elements.</p>
+
+        <div class="tech-stack">
+          <span class="tech-pill">HTML5</span>
+          <span class="tech-pill">Vanilla CSS3</span>
+          <span class="tech-pill">CSS Flexbox / Grid</span>
+          <span class="tech-pill">Responsive Design</span>
+        </div>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="./Task-1/">
+            Open Task 1
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      <!-- TASK 2 -->
+      <section class="task-card">
+        <div class="task-card-header">
+          <h2>Website Audit &amp; UX Report</h2>
+          <span class="task-tag tag-t2">Task 02</span>
+        </div>
+        <p>A comprehensive audit analyzing the NGO's digital presence. Investigates mobile responsiveness, performance
+          benchmarks, SEO layout structure, and outlines recommendations.</p>
+
+        <div class="tech-stack">
+          <span class="tech-pill">UX Research</span>
+          <span class="tech-pill">Performance Audit</span>
+          <span class="tech-pill">SEO Strategy</span>
+          <span class="tech-pill">PDF Report</span>
+        </div>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="./Task-2/Vaibhav_Patel_Task_2_Website_Audit.pdf" target="_blank">
+            Open PDF Report
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      <!-- TASK 3 -->
+      <section class="task-card">
+        <div class="task-card-header">
+          <h2>ImpactPulse</h2>
+          <span class="task-tag tag-t3">Task 03</span>
+        </div>
+        <p>Transparent NGO platform tracking community metrics, weekly resource distribution batches, and
+          volunteer skill matchmaking.</p>
+
+        <div class="tech-stack">
+          <span class="tech-pill">Next.js 16</span>
+          <span class="tech-pill">React 19</span>
+          <span class="tech-pill">Tailwind CSS</span>
+          <span class="tech-pill">Framer Motion</span>
+          <span class="tech-pill">Recharts</span>
+        </div>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="https://impact-pulse.netlify.app/" target="_blank">
+            Open Live App
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a class="btn btn-secondary" href="https://github.com/VortexDevX/InAmigos-Internship/tree/main/Task-3"
+            target="_blank">
+            Browse Source
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p class="footer-text">InAmigos Foundation Web Internship Project Hub</p>
+    <div class="footer-links">
+      <a href="https://inamigosfoundation.org.in/" target="_blank" rel="noopener">Official Website</a>
+      <a href="https://www.linkedin.com/company/inamigos-foundation" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://instagram.com/inamigos" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </footer>
+
+</body>
+
 </html>

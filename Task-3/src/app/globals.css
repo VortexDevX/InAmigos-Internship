@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #1e293b;
+  --color-secondary: #475569;
+  
+  /* Vibrant warm friendly colors */
+  --color-brand-orange: #f97316;
+  --color-brand-blue: #0ea5e9;
+  --color-brand-amber: #f59e0b;
+  --color-brand-rose: #f43f5e;
+  --color-brand-violet: #8b5cf6;
+  
+  --color-background: #faf9f6;
+  --color-card-bg: #ffffff;
+  --color-border-color: rgba(0, 0, 0, 0.06);
+  --color-text-main: #1e293b;
+  --color-text-muted: #64748b;
+  
+  --font-heading: var(--font-fira-code);
+  --font-body: var(--font-fira-sans);
+}
+
+:root {
+  --background: #faf9f6;
+  --foreground: #1e293b;
+}
+
+html,
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-fira-sans), sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #faf9f6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f97316;
+}
+
+/* Glass card styling */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.glass-panel-hover:hover {
+  border-color: rgba(249, 115, 22, 0.3);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
